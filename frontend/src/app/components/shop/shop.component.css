@@ -1,0 +1,13 @@
+
+.cta {
+    background-color: #C08004;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    padding: 8px 15px;
+    font-weight: bold;
+    transition: 0.5s ease-in-out all;
+    font-size: 20px;
+    justify-content:center ;
+}
+  

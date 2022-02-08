@@ -1,0 +1,44 @@
+.btn{
+   
+    background-color: #c08004;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    padding: 8px 15px;
+    font-weight: bold;
+    transition: 0.5s ease-in-out all;
+    font-size: 13px;
+}
+.cta {
+    background-color: #eb3d22;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    padding: 8px 15px;
+    font-weight: bold;
+    transition: 0.5s ease-in-out all;
+    font-size: 13px;
+}
+
+.cta-lg {
+    font-size: large;
+}
+
+.qInput{
+    width: 30%;
+    height:60%;
+}
+
+
+.card
+{
+    width: 750%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12%;
+}
+
+.bi-star-fill, .bi-star-half{
+    /* color: yellow; */
+    font-size: 2rem;
+}

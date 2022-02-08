@@ -1,0 +1,174 @@
+<!-- <div class="container mt-5"style="top:15vh; position: relative; width:90vh;">
+    <div class="row">
+        <div class="sticky-top"></div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+        <div class="card d-flex justify-content-center mx-auto my-3 p-5 style=">
+            <h6 class="text-muted">INFORMATION</h6>
+            <h2>Contact Us</h2>
+            <div class="form-row"> 
+                <div class="form-group col-md-6 first"> <label for="inputFirstName">FIRST NAME <span>*</span></label> <input type="text" class="form-control" id="inputFirstName" name="firstname" required>
+                    <div id="fname_error" class="val_error"></div>
+                </div>
+                <div class="form-group col-md-6 first"> <label for="inputLastName">LAST NAME <span>*</span></label> <input type="text" class="form-control" id="inputLastName" name="lastname">
+                    <div id="lname_error" class="val_error"></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6"> <label for="inputEmail">EMAIL <span>*</span></label> <input type="email" class="form-control" id="inputEmail" name="youremail">
+                    <div id="email_error" class="val_error"></div>
+                </div>
+                <div class="form-group col-md-6"> <label for="inputPhone">PHONE <span>*</span></label> <input type="text" class="form-control" id="inputPhone" name="yourphoneno">
+                    <div id="phone_error" class="val_error"></div>
+                </div>
+            </div>
+            <div class="form-group mt-0"> <label for="exampleFormControlTextarea1">MESSAGE <span>*</span></label> <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="yourmessage"></textarea>
+                <div id="message_error" class="val_error"></div>
+            </div>
+            <div class="form-check form-check-inline"> <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> <label class="form-check-label" for="inlineCheckbox1">&nbsp;&nbsp;Send me offers & updates</label> </div>
+            <div class="form-button pt-4"> <button type="submit" class="btn btn-primary btn-block btn-lg" value="Register" name="register"><span>SEND MESSAGE</span></button> </div>
+        </div>
+    </div>
+</div> 
+ -->
+
+<div class="container wrap">
+  <div class="row">
+    <div class="card d-flex justify-content-center mx-auto my-3 p-5 rounded">
+      <form
+        [formGroup]="contactForm"
+        action="https://formspree.io/f/mvolkreo"
+        method="POST"
+      >
+        <h6 class="text-muted">INFORMATION</h6>
+        <h2>Contact Us</h2>
+        {{ contactForm.value | json }}
+        <div class="row form-row">
+          <div class="form-group col-md-6 first">
+            <label for="inputFirstName">FIRST NAME <span>*</span></label>
+            <input
+              [class.is-invalid]="firstName.invalid && firstName.touched"
+              type="text"
+              class="form-control"
+              id="inputFirstName"
+              name="firstname"
+              formControlName="firstname"
+              required
+            />
+            <div *ngIf="firstName.invalid && firstName.touched">
+              <small *ngIf="firstName.errors?.required" class="text-danger"
+                >Required</small
+              >
+              <small *ngIf="firstName.errors?.minLength" class="text-danger"
+                >Your name must be atleast greater than 2 digits</small
+              >
+            </div>
+          </div>
+          <div class="form-group col-md-6 first">
+            <label for="inputLastName">LAST NAME <span>*</span></label>
+            <input
+              [class.is-invalid]="lastName.invalid && lastName.touched"
+              type="text"
+              class="form-control"
+              id="inputLastName"
+              name="lastname"
+              formControlName="lastname"
+              required
+            />
+            <div *ngIf="lastName.invalid && lastName.touched">
+              <small *ngIf="lastName.errors?.required" class="text-danger"
+                >Required</small
+              >
+              <small *ngIf="lastName.errors?.minLength" class="text-danger"
+                >Your lastName must be atleast greater than 2 digits</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail">EMAIL <span>*</span></label>
+            <input
+              [class.is-invalid]="email.invalid && email.touched"
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              name="email"
+              formControlName="email"
+            />
+            <div *ngIf="email.invalid && email.touched">
+              <small *ngIf="email.errors?.required" class="text-danger"
+                >Required</small
+              >
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPhone">PHONE <span>*</span></label>
+            <input
+              [class.is-invalid]="phone.invalid && phone.touched"
+              type="text"
+              class="form-control"
+              id="inputPhone"
+              name="phone"
+              formControlName="phone"
+            />
+            <div *ngIf="phone.invalid && phone.touched">
+              <small *ngIf="phone.errors?.required" class="text-danger"
+                >Required</small
+              >
+              <small *ngIf="phone.errors?.minLength" class="text-danger"
+                >Your phone must be atleast greater than 8 digits</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-0">
+          <label for="exampleFormControlTextarea1"
+            >MESSAGE <span>*</span></label
+          >
+          <textarea
+            [class.is-invalid]="message.invalid && message.touched"
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="4"
+            name="message"
+            formControlName="message"
+            required
+            style="resize: none"
+          ></textarea>
+          <div *ngIf="message.invalid && message.touched">
+            <small *ngIf="message.errors?.required" class="text-danger"
+              >Required</small
+            >
+            <small *ngIf="message.errors?.minLength" class="text-danger"
+              >Your message must be atleast greater than 2 digits</small
+            >
+          </div>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox1"
+            name="newsletter"
+            formControlName="newsletter"
+            value="option1"
+          />
+          <label class="form-check-label" for="inlineCheckbox1"
+            >&nbsp;&nbsp;Send me offers & updates</label
+          >
+        </div>
+        <div class="form-button pt-4">
+          <button
+            [disabled]="!contactForm.valid"
+            type="submit"
+            class="btn btn-primary btn-block btn-lg"
+            value="contact"
+            name="contact"
+          >
+            <span>SEND MESSAGE</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

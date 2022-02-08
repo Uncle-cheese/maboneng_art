@@ -1,0 +1,28 @@
+<style type="text/css">
+  .item:hover {
+    filter: brightness(80%);
+  }
+</style>
+<body>
+  <!-- checking something  routerLink="/product/{{product.id}}" -->
+
+  <div class="container wrap fixed">
+    <div class="row mt-2">
+      <div class="item col-sm-6 col-md-3 mb-5" *ngFor="let product of products">
+        <a href="/" class="fancybox" data-fancybox="gallery1"></a>
+        <img src="{{ product.imageurl }}" width="90%" height="90%" [routerLink]="['/product', product.id]" style="cursor: pointer;"/>
+        <div class="productInfo">
+          <p>{{ product.name }}</p>
+          <p>{{ product.price | currency: "R " }}</p>
+        </div>
+      </div>
+          
+      
+     
+    </div>
+    <div class="container d-flex justify-content-center align-items-center my-2">
+      <button routerLink="/seemore" class="cta">See more</button>
+    </div>
+  </div>
+
+</body>

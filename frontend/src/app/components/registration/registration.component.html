@@ -1,0 +1,68 @@
+<div class="container" style="position:relative;top:15vh; width:60vh;">
+    
+  <div class ="card">
+   <h3 style="text-align: center;">Create Account</h3>
+   <form [formGroup]="register" (ngSubmit)="onSubmit()">
+     <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">First Name:</label>
+       <input type="text" required class="form-control" formControlName="FirstName" id="Fname" name="Fname" [class.is-invalid]="userfName.invalid && userfName.touched" >
+
+       <div *ngIf ="userfName.invalid && userfName.touched">
+           <small *ngIf ="userfName.errors?.required" class ="text-danger">please enter your firstname</small>
+       </div>
+
+     </div>
+     <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Last Name:</label>
+       <input type="email" required class="form-control" formControlName="LastName" [class.is-invalid] = "userlName.invalid && userlName.touched">
+
+       <div *ngIf="userlName.invalid && userlName.touched">
+           <small *ngIf="userlName.errors?.required" class ="text-danger">enter your last name</small>
+       </div>
+
+     </div>
+     <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Mobile Number:</label>
+       <input type="email" required class="form-control" formControlName="phone" [class.is-invalid]="userPhone.invalid && userPhone.touched">
+
+       <div *ngIf ="userPhone.invalid && userPhone.touched">
+           <small *ngIf ="userPhone.errors?.required" class="text-danger">enter mobile number</small>
+       </div>
+     </div>
+     <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Email:</label>
+       <input type="email" required class="form-control" formControlName="email" [class.is-invalid]="userEmail.invalid && userEmail.touched">
+
+       <div *ngIf ="userEmail.invalid && userEmail.touched">
+           <small *ngIf="userEmail.errors?.required" class="text-danger">enter email</small>
+           <small *ngIf="userEmail.errors?.pattern" class="text-danger">enter correct email</small>
+
+       </div>
+     </div>
+     <div class="mb-3">
+       <label for="exampleInputPassword1" class="form-label">Password:</label>
+       <input type="password" required class="form-control" formControlName="password" [class.is-invalid]="userPassword.invalid && userPassword.touched">
+
+       <div *ngIf ="userPassword.invalid && userPassword.touched">
+           <small *ngIf ="userPassword.errors?.required" class="text-danger">enter password</small>
+           <small *ngIf ="userPassword.errors?.minlength" class ="text-danger">password can not be less than 6  characters</small>
+           <small *ngIf ="userPassword.errors?.minlength" class ="text-danger">password can not be more than 20 characters</small>
+       </div>
+     </div>
+     <div class="pt-1 mb-5 pb-1">
+       <button
+         type="submit"
+         class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+         [disabled]="!register.valid"
+         routerLink="/login"
+       >
+         Log in
+       </button>
+       <p>
+         Already have an account?
+         <a routerLink="/login"> Sign in </a>
+       </p>
+     </div>
+   </form>
+ </div>
+</div>

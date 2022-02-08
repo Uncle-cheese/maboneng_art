@@ -1,0 +1,100 @@
+
+  <div class="container" style="position:relative;top:15vh; width:60vh;background-color: antiquewhite;">
+    <!-- Content here register.controls['FirstName'].hasError('required') " -->
+    <h3 style="text-align: center;">Create Account</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+   
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email:</label>
+        <input type="email" required class="form-control" formControlName="email" [class.is-invalid]="userEmail.invalid && userEmail.touched">
+
+        <div *ngIf="userEmail.invalid && userEmail.touched">
+          <small *ngIf="userEmail.errors?.required" class="text-danger">Email required</small>
+          <small *ngIf="userEmail.errors?.pattern" class="text-danger">Enter a valid email</small>
+        </div>
+
+        <!-- <small class="text-danger" [class.d-none]="userEmail.valid || userEmail.untouched"> Danger</small> -->
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password:</label>
+        <input type="password" minlength="6" maxlength="20" required class="form-control" formControlName="password"[class.is-invalid]="userPassword.invalid && userPassword.touched">
+
+        <div *ngIf ="userPassword.invalid && userPassword.touched">
+          <small *ngIf="userPassword.errors?.required" class="text-danger">Password required</small>
+          <small *ngIf="userPassword.errors?.minlength" class="text-danger">Password should not be less than 6 characters</small>
+          <small *ngIf="userPassword.errors?.maxlength" class="text-danger">Password should not be greater than 20 characters</small>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" routerLink="/checkout">Sign In</button>
+      <button type="submit" class="btn btn-primary" (click)="register()">Sign Up</button>
+    </form>
+  </div> -->
+
+<!-- ================= -->
+
+<div class="container d-flex justify-content-center" style="top: 15vh; position: relative; width: 90vh">
+  <div class="card">
+    <h3 style="text-align: center">LogIn</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          required
+          class="form-control"
+          formControlName="email"
+          [class.is-invalid]="userEmail.invalid && userEmail.touched"
+        />
+
+        <div *ngIf="userEmail.invalid && userEmail.touched">
+          <small *ngIf="userEmail.errors?.required" class="text-danger"
+            >Email required</small
+          >
+          <small *ngIf="userEmail.errors?.pattern" class="text-danger"
+            >Please enter correct email</small
+          >
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          minlength="6"
+          maxlength="20"
+          required
+          class="form-control"
+          formControlName="password"
+          [class.is-invalid]="userPassword.invalid && userPassword.touched"
+        />
+
+        <div *ngIf="userPassword.invalid && userPassword.touched">
+          <small *ngIf="userPassword.errors?.required" class="text-danger"
+            >Password required</small
+          >
+          <small *ngIf="userPassword.errors?.minlength" class="text-danger"
+            >Password can not be less than 6 characters</small
+          >
+          <small *ngIf="userPassword.errors?.maxlength" class="text-danger"
+            >Password can not exceed 20 characters</small
+          >
+        </div>
+      </div>
+
+      <div class="pt-1 mb-5 pb-1">
+        <button
+          type="submit"
+          class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+          [disabled]="!loginForm.valid"
+          routerLink="/checkout"
+        >
+          Log in
+        </button>
+        <a class="text-muted" href="#!">Forgot password?</a>
+      </div>
+      <p>
+        Already have an account?
+        <a routerLink="/registration"> Sign up </a>
+      </p>
+    </form>
+  </div>
+</div>

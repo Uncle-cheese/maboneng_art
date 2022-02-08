@@ -1,0 +1,104 @@
+<div
+  class="card d-flex justify-content-center"
+  style="max-width: 70%"
+  *ngIf="products"
+>
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        src="{{ products.imageurl }}"
+        class="img-fluid rounded-start"
+        alt="..."
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h5 class="text-uppercase fs-1 fw-bold">{{ products.name }}</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p class="about">{{ products.description }}</p>
+              <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis aspernatur officiis labore quam sed minima necessitatibus perspiciatis </p> -->
+            </div>
+            <div class="row pt-3">
+              <div class="col">
+                <form [formGroup]="quantityForm">
+                  <span class="fs-3 fw-bold"
+                    >Quantity:
+                    <input
+                      class="qInput fs-5"
+                      type="number"
+                      id=""
+                      formControlName="quantity"
+                    />
+                  </span>
+                </form>
+              </div>
+              <div class="col">
+                <span class="price fs-3 fw-bold"
+                  >Price : R{{ products.price }}</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container pt-5">
+          <div class="row pt-5 ">
+            <div class="col-12">
+              <div class="row d-flex justify-content-center">
+                <div class="col-8">
+                  <button
+                    class="btn ext-uppercase px-4 cta-lg"
+                    (click)="addToCart()"
+                  >
+                    <i class="bi bi-plus-lg"></i>Add to cart
+                  </button>
+                  <button class="cta cta-lg ml-2" (click)="run()">
+                    Shop Now
+                  </button>
+
+                </div>
+                <div class="col-4">
+                    <div class="star">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <section id="featured" class="my-5 pb-5 pt-2">
+    <div class="container text-center mt-5">
+      <h3>Related Products</h3>
+      <hr class="mx-auto" />
+
+      <div class="row">
+        <div
+          class="item col-sm-6 col-md-3 mb-5"
+          *ngFor="let products of product"
+        >
+          <a href="/" class="fancybox" data-fancybox="gallery1"></a>
+          <img src="{{ products.imageurl }}" width="90%" height="90%" />
+          <div class="productInfo">
+            <p>{{ products.name }}</p>
+            <p>{{ products.price | currency: "R " }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,51 @@
+
+<div class="productList">
+  <div class="container-md ">
+
+      <div class="card" style="width:100%; top:8vh" >
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Details</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cartitem of cartItems" class="my-2">
+              
+              <td style="width: 25vw;"> 
+                <li class="list-group-item" style="width:50%; height: 25;">        
+                  <img src={{cartitem.modified_at}} width="100%" height="100%" />
+                </li>
+              </td>
+              <td>{{cartitem.name}}</td>
+              <!-- <td>{{cartitem.quantity}}</td> -->
+              <td>
+                <input type="number" name="quantity" value="{{cartitem.quantity}}">
+              </td>
+              <td>{{cartitem.price}}</td>
+              <button type="button" class="close" aria-label="Close" (click)="deleteCartItem(cartitem.id)">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </tr>
+            
+          </tbody>
+       
+        </table>
+        <div class="container p-4">
+          <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6 d-flex justify-content-end ">
+              <button routerLink="/login" class ="cta">Checkout</button>
+              <button (click)="deleteAllCartItem()" class ="cta" >Clear cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+      
+  </div>
+  

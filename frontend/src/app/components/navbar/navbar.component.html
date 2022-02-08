@@ -1,0 +1,173 @@
+<!-- <nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark p-2 opacity-75 fixed-top text-light"
+  role="navigation"
+> -->
+<!-- <nav
+  class="navbar navbar-expand-lg navbar-dark fixed-top navbar-default bg-dark p-2 opacity-75"
+  role="navigation"
+>
+  <div class="container-fluid">
+    <div>
+      <a
+        class="navbar-brand text-white"
+        style="font-size: 25px"
+        routerLink="/home"
+        >Maboneng Art Gallery</a
+      >
+    </div>
+
+    <button
+      class="navbar-toggler toggler-example bg-danger"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent1"
+      aria-controls="navbarSupportedContent1"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="toggleNavbarCollapsing()"
+    >
+      <span class="dark-blue-text">
+        <i class="fas fa-bars fa-1x"></i>
+      </span>
+    </button>
+
+    <div class="navbar-collapse collapse" [class.collapse]="navbarCollapsed">
+      <ul>
+        <div class="navbar-nav" style="font-size: 25px">
+          <div class="d-flex">
+            <li class="nav-item active">
+              <a
+                class="nav-link active text-white"
+                aria-current="page"
+                routerLink="/shop"
+                >Shop</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a
+                class="nav-link active text-white"
+                aria-current="page"
+                routerLink="/mystory"
+                >My Story</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a
+                class="nav-link active text-white"
+                aria-current="page"
+                routerLink="/gallery"
+                >Gallery</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a
+                class="nav-link active text-white"
+                aria-current="page"
+                routerLink="/contact"
+                >Contact</a
+              >
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+
+    <a routerLink="/cart">
+      <i class="bi bi-cart mr-3">
+        <span
+          class="position-absolute ml-2 translate-middle badge rounded-pill bg-danger"
+        >
+          31
+        </span>
+      </i>
+    </a>
+  </div>
+</nav> -->
+
+<!-- <nav
+  class="navbar navbar-expand-sm navbar-dark bg-dark p-2 opacity-75 text-light"
+> -->
+
+<nav
+  class="navbar navbar-expand-lg navbar-dark fixed-top navbar-default bg-dark p-2 opacity-75"
+  role="navigation"
+>
+  <div class="container d-flex align-items-center justify-content-between">
+    <div>
+      <a
+        class="navbar-brand text-white"
+        style="font-size: 25px"
+        routerLink="/home"
+        >Maboneng</a
+      >
+    </div>
+    <!-- <a class="navbar-brand" routerLink="/home">Maboneng</a> -->
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-toggle="collapse"
+      data-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="toggleNavbarCollapsing()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div
+      class="collapse navbar-collapse"
+      id="collapsibleNavId"
+      [class.collapse]="navbarCollapsed"
+    >
+      <ul
+        class="navbar-nav ms-auto justify-content-center align-items-center mt-2"
+        style="font-size: 20px"
+      >
+        <li class="nav-item active">
+          <a
+            class="nav-link active text-white"
+            aria-current="page"
+            routerLink="/shop"
+            >Shop</a
+          >
+        </li>
+        <li class="nav-item active">
+          <a
+            class="nav-link active text-white"
+            aria-current="page"
+            routerLink="/mystory"
+            >My Story</a
+          >
+        </li>
+        <li class="nav-item active">
+          <a
+            class="nav-link active text-white"
+            aria-current="page"
+            routerLink="/gallery"
+            >Gallery</a
+          >
+        </li>
+        <li class="nav-item active">
+          <a
+            class="nav-link active text-white"
+            aria-current="page"
+            routerLink="/contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <div class="d-flex align-items-center justify-content-center m-2 cart">
+        <a routerLink="/cart">
+          <i class="bi bi-cart mr-3">
+            <span
+              class="position-absolute ml-2 translate-middle badge rounded-pill pill bg-danger"
+            >
+             {{num}}
+            </span>
+          </i>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,207 @@
+<div class="container mb-4" style="position: relative; top: 20vh">
+  <div class="row d-flex justify-content-center p-4 bg-white rounded mb-4">
+    <div class="col-md-6">
+      <form>
+        <div class="form-group">
+          <fieldset class="form-group">
+            <label>Upload Product Image</label>
+            {{ imageError }}
+            <div class="custom-file fileInputProfileWrap">
+              <input
+                type="file"
+                (change)="fileChangeEvent($event)"
+                class="fileInputProfile"
+              />
+              <div class="img-space">
+                <ng-container *ngIf="isImageSaved; else elseTemplate">
+                  <img [src]="cardImageBase64" />
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <h6 class="text-center text-info">click anywhere</h6>
+                  <img
+                    src="./../../assets/images/placeholder.png"
+                    class="img-responsive"
+                  />
+                </ng-template>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">
+          Remove
+        </a>
+      </form>
+    </div>
+    <div class="col-md-6 p-4">
+      <div class="bg-light px-4 py-2 rounded">
+        <h5 class="text-uppercase text-center mb-4">Add Painting Details</h5>
+        <form [formGroup]="productsForm" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-3">
+            <label for="name" class="form-label">Product Name</label>
+            <input
+              [class.is-invalid]="productName.invalid && productName.touched"
+              formControlName="name"
+              type="text"
+              class="form-control"
+              minlength="3"
+              required
+            />
+            <div *ngIf="productName.invalid && productName.touched">
+              <small *ngIf="productName.errors?.required" class="text-danger"
+                >Product name is required</small
+              >
+              <small *ngIf="productName.errors?.minlength" class="text-danger"
+                >Product name must be atleast 3 characters long</small
+              >
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label for="description" class="form-label"
+              >Product Description</label
+            >
+            <input
+              [class.is-invalid]="productDescription.invalid && productDescription.touched"
+              formControlName="description"
+              type="text"
+              class="form-control"
+              minlength="10"
+              required
+            />
+            <div *ngIf="productDescription.invalid && productDescription.touched">
+              <small *ngIf="productDescription.errors?.required" class="text-danger"
+                >Product description is required</small
+              >
+              <small *ngIf="productDescription.errors?.minlength" class="text-danger"
+                >Product description must be atleast 10 characters long</small
+              >
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label for="price" class="form-label">Product Price</label>
+            <input
+              [class.is-invalid]="productPrice.invalid && productPrice.touched"
+              formControlName="price"
+              type="number"
+              min="1"
+              class="form-control"
+              required
+            />
+            <div *ngIf="productPrice.invalid && productPrice.touched">
+              <small *ngIf="productPrice.errors?.required" class="text-danger"
+                >Product price is required</small
+              >
+              <small *ngIf="productPrice.errors?.min" class="text-danger"
+                >Product price must be atleast greater than R1</small
+              >
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label for="quantity" class="form-label">Product Quantity</label>
+            <input
+              [class.is-invalid]="productQuantity.invalid && productQuantity.touched"
+              formControlName="quantity"
+              type="number"
+              min="0"
+              class="form-control"
+              required
+            />
+            <div *ngIf="productQuantity.invalid && productQuantity.touched">
+              <small
+                *ngIf="productQuantity.errors?.required"
+                class="text-danger"
+                >Product quantity is required</small
+              >
+            </div>
+          </div>
+          <button
+            [disabled]="!productsForm.valid"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <form>
+  <div class="form-group">
+    <fieldset class="form-group">
+      <label>Upload Logo</label>
+      {{ imageError }}
+      <div class="custom-file fileInputProfileWrap">
+        <input
+          type="file"
+          (change)="fileChangeEvent($event)"
+          class="fileInputProfile"
+        />
+        <div class="img-space">
+          <ng-container *ngIf="isImageSaved; else elseTemplate">
+            <img [src]="cardImageBase64" />
+          </ng-container>
+          <ng-template #elseTemplate>
+            <img
+              src="./../../assets/images/placeholder.png"
+              class="img-responsive"
+            />
+          </ng-template>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved"
+    >Remove</a
+  >
+</form> -->
+
+<!-- Neo's -->
+<!-- <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Product Name</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Product Description</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Product Price</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Product Quantity</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+-->

@@ -1,0 +1,41 @@
+/* .navbar-nav  {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    padding-left: 22rem;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navbar-nav.nav-link{
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+}
+
+*/
+
+.bi {
+    color: white;
+    font-size: 24px;
+}
+
+.register{
+    padding-right: 13%;
+}
+/* 
+.cart {
+    position: relative;
+}
+
+.pill {
+    top: 0;
+    right: 0;
+    position: absolute;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10%;
+} */

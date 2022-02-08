@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+body{
+    /* background-color: #E2D8CC; */
+    background-color: #f4f4f4;
+}
+.wrap{
+    padding-top: 8% !important;
+}
+.productInfo{
+    padding-left: 35%;
+}

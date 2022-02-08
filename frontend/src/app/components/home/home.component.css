@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
+.navbar-nav  {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding-left: 0; */
+    padding-left: 22rem;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navbar-nav.nav-link{
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+}
+
+.bi {
+    color: white;
+    font-size: 24px;
+}
+
+.bg-image {
+    max-width: 100%;
+    height: 100vh;
+    background-image: url("../../../assets/images/img1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+/* .bg-image::after {
+    content: "";
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    background: #000;
+} */
+
+.bg-image::after {
+    content: "";
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3); /* Black background with opacity */
+    z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+}
+
+.mycontainer {
+    text-align: center;
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+h2 {
+    font-family: 'Yellowtail', cursive;
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.cta {
+    background-color: #eb3d22;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    padding: 8px 15px;
+    font-weight: bold;
+    transition: 0.5s ease-in-out all;
+    font-size: 20px;
+}
+
+.cta:hover {
+    background-color: #eb3d2286;
+    color: white;
+}
+
+
+
+ 
